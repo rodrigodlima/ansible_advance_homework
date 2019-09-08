@@ -2,6 +2,7 @@
 - name: Create new server instances and attaches them a network and passes metadata to the instance
   os_server:
     cloud: ospcloud
+    meta: "group={{ group }},deployment_name={{ deployment }}"
     flavor: m2.small
     security_groups: "{{ security_group }}"
     key_name: ansible_ssh
@@ -12,6 +13,7 @@
 - name: Add floating IP to Servers
   os_floating_ip:
       cloud: ospcloud
+      meta: "group={{ group }},deployment_name={{ deployment }}"
       state: present
       reuse: yes
       server: "{{ instance_name }}"
