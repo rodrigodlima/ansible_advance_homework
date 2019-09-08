@@ -20,4 +20,4 @@
   - name: Create db instance
     include_role:
        name: osp-servers
-       vars_from: db.yml  
+       vars_from: appdb.yml  
