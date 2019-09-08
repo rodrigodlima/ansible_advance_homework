@@ -15,7 +15,7 @@
 - name: Add floating IP to Servers
   os_floating_ip:
       cloud: ospcloud
-      name: "{{ instance_name }}"
+      server: "{{ instance_name }}"
       state: present
       reuse: yes
       server: "{{ instance_name }}"
