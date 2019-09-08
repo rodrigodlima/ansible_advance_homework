@@ -21,4 +21,4 @@
   register: instancefloatingip
    
 
-- name: Wait for server to be available
+#- name: Wait for server to be available
