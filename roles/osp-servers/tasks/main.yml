@@ -16,7 +16,6 @@
   os_floating_ip:
       cloud: ospcloud
       name: "{{ instance_name }}"
-      meta: "group={{ group }},deployment_name={{ deployment }}"
       state: present
       reuse: yes
       server: "{{ instance_name }}"
