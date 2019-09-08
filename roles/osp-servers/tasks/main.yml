@@ -4,7 +4,7 @@
     cloud: ospcloud
     meta: "group={{ group }},deployment_name={{ deployment }}"
     flavor: m2.small
-    security_groups: "{{ security_group }}"
+    security_groups: "{{ security_group_name }}"
     key_name: ansible_ssh
     wait: yes
     nics:
