@@ -8,8 +8,9 @@
     register: openstack_info
     tags:
       - osp.smoke
+  
   - name: Curl website
-    command: "curl http://{{ instancefloatingip.floating_ip.floating_ip_address }}"
+    shell: echo "{{ instancefloatingip.floating_ip.floating_ip_address }}"
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:

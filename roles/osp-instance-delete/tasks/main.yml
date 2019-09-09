@@ -1,5 +1,9 @@
 ---
-# tasks file for roles/osp-instance-delete
-  - name: Fetch Instance Info
-  - name: Delete instances
-   
+- name: Delete Openstack instances
+  os_server_facts:
+    cloud: rax-dfw
+    server: web*
+    filters:
+      vm_state: active
+- debug:
+    var: openstack_servers
