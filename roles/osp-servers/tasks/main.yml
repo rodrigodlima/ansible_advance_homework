@@ -13,9 +13,12 @@
     - net-name: int_network
     userdata: |
         #!/bin/bash
-        cat /root/.ssh/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
-        curl -o /etc/yum.repos.d/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
-
+        #cat /root/.ssh/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+        #curl -o /etc/yum.repos.d/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+        curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+        cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+        curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+        cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
 - name: Add floating IP to Servers
   os_floating_ip:
       cloud: ospcloud
@@ -31,7 +34,7 @@
 
 - name: Show "{{ instanceip }}" public IP
   debug: var=instancefloatingip.floating_ip.floating_ip_address
-  
+
 - name: Wait for "{{ instance_name }}" to be available
   wait_for:
     host: "{{ instancefloatingip.floating_ip.floating_ip_address }}"
