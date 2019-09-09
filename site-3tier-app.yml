@@ -13,7 +13,7 @@
     - {name: base-config, tags: base-config}
     - {name: lb-tier, tags: [lbs, haproxy]}
   vars:
-    ansible_ssh_private_key_file: /home/cloud-user/.ssh/test_id_rsa
+    ansible_ssh_private_key_file: /tmp/test_id_rsa
 
 # Setup application servers tier
 
@@ -25,7 +25,7 @@
     - {name: base-config, tags: base-config}
     - {name: app-tier, tags: [apps, tomcat]}
   vars:
-    ansible_ssh_private_key_file: /home/cloud-user/.ssh/test_id_rsa
+    ansible_ssh_private_key_file: /tmp/test_id_rsa
 
 # Setup database tier
 
@@ -36,4 +36,4 @@
     - {name: base-config, tags: base-config}
     - {name: db-tier, tags: [dbs, postgres]}
   vars:
-    ansible_ssh_private_key_file: /home/cloud-user/.ssh/test_id_rsa
+    ansible_ssh_private_key_file: /tmp/.ssh/test_id_rsa
