@@ -5,4 +5,4 @@
     name: "{{ instance_name }}"
     state: absent
 - debug:
-    msg: Instance Name: {{ instance_name }}
+    msg: "Instance Name: {{ instance_name }}"
