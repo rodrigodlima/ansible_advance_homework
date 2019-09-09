@@ -4,12 +4,14 @@
   - name: OpenStack servers
     os_server_facts:
      cloud: ospcloud
-     server: 'frontend'
+     server: frontend*
     register: openstack_info
     tags:
       - osp.smoke
   - debug:
-      msg: "{{ openstack_info }}"  
+      msg: "{{ openstack_info }}"
+  - debug:
+      var: openstack_servers  
 #  - name: Curl website
 #    shell: "curl {{  }}"
 
