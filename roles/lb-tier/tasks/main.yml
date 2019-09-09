@@ -1,5 +1,10 @@
 ---
 # tasks file for lb-tier
+- name: Create epel repository
+  template:
+    src: epel.repo
+    dest: /etc/yum.repos.d/epel.repo
+    
 - name: Install http
   yum:
     name: httpie
