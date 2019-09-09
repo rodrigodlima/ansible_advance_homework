@@ -12,6 +12,8 @@
   roles:
     - {name: base-config, tags: base-config}
     - {name: lb-tier, tags: [lbs, haproxy]}
+  vars:
+    ansible_ssh_private_key_file: /root/.ssh/test_id_rsa
 
 # Setup application servers tier
 
@@ -22,6 +24,8 @@
   roles:
     - {name: base-config, tags: base-config}
     - {name: app-tier, tags: [apps, tomcat]}
+  vars:
+    ansible_ssh_private_key_file: /root/.ssh/test_id_rsa
 
 # Setup database tier
 
@@ -31,3 +35,5 @@
   roles:
     - {name: base-config, tags: base-config}
     - {name: db-tier, tags: [dbs, postgres]}
+  vars:
+    ansible_ssh_private_key_file: /root/.ssh/test_id_rsa
