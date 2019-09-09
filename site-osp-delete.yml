@@ -1,4 +1,19 @@
 - hosts: workstation
   become: yes
-  roles:
-    - osp-instance-delete
+  tasks:
+  - name: Delete frontend instance
+    include_role:
+       name: osp-instance-delete
+       vars_from: frontend.yml
+  - name: Delete app1 instance
+    include_role:
+       name: osp-instance-delete
+       vars_from: app1.yml
+  - name: Delete app2 instance
+    include_role:
+       name: osp-instance-delete
+       vars_from: app2.yml
+  - name: Delete db instance
+    include_role:
+       name: osp-instance-delete
+       vars_from: appdb.yml  

@@ -1,8 +1,8 @@
 ---
 - name: Delete Openstack instances
   os_server_facts:
-    cloud: rax-dfw
-    server: web*
+    cloud: ospcloud
+    server: "{{ instance_name }}"
     filters:
       vm_state: active
 - debug:
