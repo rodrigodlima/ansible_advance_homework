@@ -5,4 +5,4 @@
     name: "{{ instance_name }}"
     state: absent
 - debug:
-    var: "{{ instance_name.output }}"
+    msg: Instance Name: {{ instance_name }}
