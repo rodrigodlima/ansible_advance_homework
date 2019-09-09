@@ -1,6 +1,5 @@
 ---
 # tasks file for lb-tier
----
 - name: Install http
   yum:
     name: httpie
