@@ -12,13 +12,14 @@
     nics:
     - net-name: int_network
     userdata: |
-      #!/bin/bash
+      {%- raw -%}#!/bin/bash
       #cat /root/.ssh/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       #curl -o /etc/yum.repos.d/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
+      {% endraw %}
 - name: Add floating IP to Servers
   os_floating_ip:
       cloud: ospcloud
