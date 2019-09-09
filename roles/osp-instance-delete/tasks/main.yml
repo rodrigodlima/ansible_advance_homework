@@ -1,9 +1,8 @@
 ---
 - name: Delete Openstack instances
-  os_server_facts:
+  os_server:
     cloud: ospcloud
     server: "{{ instance_name }}"
-    filters:
-      vm_state: active
+    state: absent
 - debug:
     var: openstack_servers
