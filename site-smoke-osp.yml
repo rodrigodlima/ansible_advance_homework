@@ -4,7 +4,8 @@
   - name: OpenStack servers
     os_server_facts:
      cloud: ospcloud
-     server: front*
+     region_name: RegionOne
+     server: frontend
      filters:
       vm_state: active
     register: openstack_info
