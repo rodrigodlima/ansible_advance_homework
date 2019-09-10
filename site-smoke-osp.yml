@@ -8,8 +8,8 @@
     register: result
   tags:
     - osp.smoke
-- debug:
-    msg: "{{ result }}"
+  - debug:
+      msg: "{{ result }}"
   #- debug:
      # var: openstack_servers[0].interface_ip 
 #  - name: Curl website
