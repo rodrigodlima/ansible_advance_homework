@@ -1,3 +1,13 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: Create In-memory Inventory
+    add_host: 
+      name: workstation-0b34.rhpds.opentlc.com
+      group: workstation
+      ansible_ssh_private_key_file: ~/.ssh/openstack.pem
+      ansible_ssh_user: cloud-user
+
 - hosts: workstation
   gather_facts: false
   tasks:
