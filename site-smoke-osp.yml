@@ -6,8 +6,8 @@
      cloud: ospcloud
      region_name: RegionOne
     register: result
-    tags:
-      - osp.smoke
+  tags:
+    - osp.smoke
 - debug:
     msg: "{{ result }}"
   #- debug:
