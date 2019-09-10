@@ -21,12 +21,10 @@
     command: curl "http://{{item.public_v4}}"
     with_items:
       - "{{ openstack_info.ansible_facts.openstack_servers }}"
+    register: webpage
   
   - debug:
-      msg: "{{ openstack_info }}"
-  
-  - debug:
-      var: openstack_info
+      msg: "{{ webpage }}"
       
 #  - name: Curl website
 #    shell: "curl {{  }}"
