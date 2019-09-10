@@ -5,6 +5,8 @@
     os_server_facts:
      cloud: ospcloud
      server: frontS*
+     filters:
+      vm_state: active
     register: openstack_info
     tags:
       - osp.smoke
