@@ -1,8 +1,10 @@
----
-- name: Fetch Instance Info
-  os_server_facts:
-    cloud: ospcloud
-    region_name: RegionOne
+- hosts: workstation
+  gather_facts: True
+  tasks:
+  - name: Fetch Instance Info
+    os_server_facts:
+     cloud: ospcloud
+     region_name: RegionOne
     register: result
     tags:
       - osp.smoke
