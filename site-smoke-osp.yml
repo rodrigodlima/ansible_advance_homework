@@ -1,21 +1,18 @@
 - hosts: workstation
-  gather_facts: True
+  gather_facts: false
   tasks:
   - name: OpenStack servers
     os_server_facts:
-     cloud: ospcloud
-     region_name: RegionOne
-     server: frontend
-     all_projects: yes
-     filters:
-      vm_state: active
+      cloud: ospcloud
+      server: 'frontend'
     register: openstack_info
-    tags:
-      - osp.smoke
+
+  - name: Curl website
+    command: curl "http://{{item.public_v4}}"
   - debug:
       msg: "{{ openstack_info }}"
   - debug:
-      var: openstack_servers
+      var: openstack_info
       
 #  - name: Curl website
 #    shell: "curl {{  }}"
