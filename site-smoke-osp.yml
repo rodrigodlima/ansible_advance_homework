@@ -1,3 +1,4 @@
+---
 - name: Fetch Instance Info
   os_server_facts:
     cloud: ospcloud
