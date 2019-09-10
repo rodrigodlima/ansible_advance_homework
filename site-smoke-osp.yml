@@ -4,7 +4,7 @@
   - name: OpenStack servers
     os_server_facts:
      cloud: ospcloud
-     server: frontS*
+     server: front*
      filters:
       vm_state: active
     register: openstack_info
@@ -13,7 +13,7 @@
   - debug:
       msg: "{{ openstack_info }}"
   - debug:
-      var: openstack_servers  
+      var: openstack_servers[0].interface_ip 
 #  - name: Curl website
 #    shell: "curl {{  }}"
 
